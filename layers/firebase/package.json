@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "firebase": "^9.17.2",
+    "nuxt-vuefire": "^0.1.6",
+    "vuefire": "^3.1.0"
+  }
+}
