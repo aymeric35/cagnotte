@@ -13,7 +13,10 @@
     "@unocss/reset": "^0.50.1",
     "mitt": "^3.0.0",
     "unocss": "^0.50.1",
-    "unocss-preset-daisy": "^1.2.0"
+    "unocss-preset-daisy": "^1.2.0",
+    "firebase": "^9.17.2",
+    "nuxt-vuefire": "^0.1.6",
+    "vuefire": "^3.1.0"
   },
   "devDependencies": {
     "nuxt": "^3.2.3",
