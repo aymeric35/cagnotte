@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
     ssr: false,
     extends: [
-        "../../layers/firebase",
-        "../../layers/daisyui",
+        "./layers/firebase",
+        "./layers/daisyui",
     ],
 })
