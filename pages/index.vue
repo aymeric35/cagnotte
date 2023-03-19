@@ -18,12 +18,12 @@
 </template>
 
 <script setup lang="ts">
-import { collection, doc, updateDoc } from 'firebase/firestore'
+import { collection, doc, increment as inc, updateDoc } from 'firebase/firestore'
 
 const db = useFirestore();
 const users = useDocument(doc(collection(db, 'app'), 'data'))
-const total = ref(users.value?.euros)
-const stringifiedTotal = computed(() => Number(Math.round(parseFloat(total.value + 'e' + 2)) + 'e-' + 2).toFixed(2))
+const total = useDocument(doc(collection(db, 'app'), 'data'))
+const stringifiedTotal = computed(() => Number(Math.round(parseFloat(total.value?.euros + 'e' + 2)) + 'e-' + 2).toFixed(2))
 const euros = computed(() => {
     return stringifiedTotal.value.split('.')[0]
 })
@@ -31,10 +31,12 @@ const centimes = computed(() => {
     return stringifiedTotal.value.split('.')[1]
 })
 
-const increment = async () => {    
+const increment = async () => {
     await updateDoc(doc(collection(db, 'app'), 'data'), {
-        "euros": total.value += 0.1
+        euros: inc(0.1)
     });
+    console.log(users.value?.euros);
+    
 }
 
 
