@@ -12,12 +12,7 @@
                 </span>
             </div>
         </div>
-        <button @click="increment()">Add 1</button>
-        <div>{{ data?.euros }}</div>
-        <select class="select w-full max-w-xs" v-model="colorMode.preference">
-            <option disabled selected>Theme</option>
-            <option v-for="theme of themes" :key="theme">{{ theme }}</option>
-        </select>
+        <button @click="increment()">Ajouter 10 centimes</button>
     </div>
 </template>
 
@@ -35,46 +30,12 @@ const formatedTotal = computed(() => {
         centimes: total.split('.')[1]
     }
 })
-
 const increment = async () => {
     await updateDoc(doc(collection(db, 'app'), 'data'), {
         euros: inc(0.1)
     });
 }
 
-const colorMode = useColorMode();
-const themes = [
-  'system',
-  'light',
-  'dark',
-  'cupcake',
-  'bumblebee',
-  'emerald',
-  'corporate',
-  'synthwave',
-  'retro',
-  'cyberpunk',
-  'valentine',
-  'halloween',
-  'garden',
-  'forest',
-  'aqua',
-  'lofi',
-  'pastel',
-  'fantasy',
-  'wireframe',
-  'black',
-  'luxury',
-  'dracula',
-  'cmyk',
-  'autumn',
-  'business',
-  'acid',
-  'lemonade',
-  'night',
-  'coffee',
-  'winter',
-];
 </script>
 
 <style scoped></style>
