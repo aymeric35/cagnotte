@@ -1,5 +1,16 @@
 <script setup lang="ts">
-const user = useCurrentUser()
+import { collection, doc } from 'firebase/firestore'
+const user = useCurrentUser();
+const db = useFirestore();
+const { data } = useDocument(doc(collection(db, 'app'), 'data'))
+
+const userAmount = computed(() => {
+    const username = user?.value?.displayName?.toLowerCase();
+    if (data.value && username) {
+        console.log(data.value[username], 'userAmount');
+        return Number(data.value[username].euros).toFixed(2)
+    }
+})
 </script>
 
 <template>
@@ -7,8 +18,8 @@ const user = useCurrentUser()
         <div class="navbar bg-base-300">
             <div class="flex-1">
                 <a class="btn btn-ghost normal-case text-xl">Cagnotte Vacances</a>
-            </div>
-            <div v-if="user" class="flex-none">
+        </div>
+        <div v-if="user" class="flex-none">
                 <div class="dropdown dropdown-end">
                     <label tabindex="0" class="btn btn-square btn-ghost m-1">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -19,7 +30,12 @@ const user = useCurrentUser()
                         </svg>
                     </label>
                     <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><p class="hover:bg-transparent hover:cursor-default">Bonjour {{ user?.displayName }} !</p></li>
+                        <li>
+                            <p class="hover:bg-transparent hover:cursor-default">Bonjour {{ user?.displayName }} !</p>
+                        </li>
+                        <li>
+                            <p class="block">Montant dû dans la cagnotte : <span class="font-bold">{{ userAmount }}€</span></p>
+                        </li>
                         <li><button @click="signOutUser">Se deconnecter</button></li>
                     </ul>
                 </div>

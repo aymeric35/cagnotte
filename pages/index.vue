@@ -23,8 +23,11 @@
 import { collection, doc, increment as inc, updateDoc } from 'firebase/firestore'
 
 const db = useFirestore();
+const user = useCurrentUser();
+const username = user.value?.displayName as string
 
 const { data, pending } = useDocument(doc(collection(db, 'app'), 'data'))
+
 const formatedTotal = computed(() => {
     const total = Number(data.value?.euros).toFixed(2);
     const totalSplit = total.split('.');
@@ -35,7 +38,8 @@ const formatedTotal = computed(() => {
 })
 const increment = async () => {
     await updateDoc(doc(collection(db, 'app'), 'data'), {
-        euros: inc(0.1)
+        euros: inc(0.1),
+        [`${username}.euros`]: inc(0.1)
     });
 }
 
