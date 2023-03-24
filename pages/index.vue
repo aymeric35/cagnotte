@@ -26,7 +26,7 @@ const db = useFirestore();
 const user = useCurrentUser();
 const username = user.value?.displayName as string
 
-const { data, pending } = useDocument(doc(collection(db, 'app'), 'data'))
+const {data, pending} = useFirestoreAPI();
 
 const formatedTotal = computed(() => {
     const total = Number(data.value?.euros).toFixed(2);

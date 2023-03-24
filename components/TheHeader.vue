@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import { collection, doc } from 'firebase/firestore'
 const user = useCurrentUser();
-const db = useFirestore();
-const { data } = useDocument(doc(collection(db, 'app'), 'data'))
+const { data } = useFirestoreAPI()
 
 const userAmount = computed(() => {
     const username = user?.value?.displayName?.toLowerCase();
     if (data.value && username) {
-        console.log(data.value[username], 'userAmount');
         return Number(data.value[username].euros).toFixed(2)
     }
 })
