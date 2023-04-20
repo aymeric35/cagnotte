@@ -4,10 +4,16 @@ const { data } = useFirestoreAPI()
 
 const userAmount = computed(() => {
     const username = user?.value?.displayName?.toLowerCase();
+    console.log(username, 'username'); // toto
+    console.log(data, 'data.value'); // undefined
     if (data.value && username) {
         return Number(data.value[username].euros).toFixed(2)
     }
 })
+
+const callData = () => {
+    console.log(data.value);
+}
 </script>
 
 <template>
@@ -32,6 +38,9 @@ const userAmount = computed(() => {
                         </li>
                         <li>
                             <p class="block">Montant dû dans la cagnotte : <span class="font-bold">{{ userAmount }}€</span></p>
+                        </li>
+                        <li>
+                            <button @click="callData">Call data</button>
                         </li>
                         <li><button @click="signOutUser">Se deconnecter</button></li>
                     </ul>
