@@ -1,0 +1,26 @@
+{
+  "name": "@nuxt-fullstack-starter/ui",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./nuxt.config.ts",
+  "types": "./types/index.d.ts",
+  "scripts": {
+    "postinstall": "nuxt prepare",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "dependencies": {
+    "@nuxt-fullstack-starter/lib": "workspace:*",
+    "mitt": "^3.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/color-mode": "3.2.0",
+    "@nuxt-fullstack-starter/nuxt-layer-daisyui": "workspace:*",
+    "nuxt": "3.4.2",
+    "nuxt-icon": "0.3.3",
+    "sass": "^1.62.0"
+  }
+}

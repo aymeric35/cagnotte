@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "antfu.iconify",
+    "antfu.where-am-i",
+
+    "dbaeumer.vscode-eslint",
+    "vue.volar",
+    "stylelint.vscode-stylelint",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+    "bradlc.vscode-tailwindcss",
+
+    "eamodio.gitlens",
+    "EditorConfig.EditorConfig",
+    "GitHub.vscode-pull-request-github",
+    "mpontus.tab-cycle"
+  ]
+}

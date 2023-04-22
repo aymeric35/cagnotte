@@ -1,0 +1,17 @@
+{
+  "name": "@nuxt-fullstack-starter/nuxt-layer-security",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./nuxt.config.ts",
+  "types": "./types/index.d.ts",
+  "scripts": {
+    "postinstall": "nuxt prepare",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "devDependencies": {
+    "nuxt": "3.4.2",
+    "nuxt-security": "^0.13.0"
+  }
+}

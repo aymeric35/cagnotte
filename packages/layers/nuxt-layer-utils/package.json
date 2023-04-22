@@ -1,0 +1,25 @@
+{
+  "name": "@nuxt-fullstack-starter/nuxt-layer-utils",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./nuxt.config.ts",
+  "types": "./types/index.d.ts",
+  "scripts": {
+    "postinstall": "nuxt prepare",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "dependencies": {
+    "nuxt-security": "^0.13.0"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "0.3.0",
+    "@nuxt/test-utils": "3.4.2",
+    "@vitejs/plugin-vue": "4.1.0",
+    "@vue/test-utils": "2.3.2",
+    "nuxt": "3.4.2",
+    "nuxt-vitest": "0.6.9",
+    "vitest": "0.30.1"
+  }
+}

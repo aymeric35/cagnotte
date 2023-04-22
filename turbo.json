@@ -1,0 +1,54 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "db:seed": {},
+    "db:generate": {
+      "cache": false
+    },
+    "db:push": {
+      "cache": false
+    },
+    "docs:dev": {
+      "cache": false
+    },
+    "docs:build": {
+      "cache": false
+    },
+    "docs:preview": {
+      "cache": false
+    },
+    "build": {
+      "dependsOn": [
+        "^db:generate",
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".output/**",
+        ".histoire/**",
+        "**/.vitepress/dist/**"
+      ]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "lint:fix": {
+      "outputs": []
+    },
+    "dev": {
+      "dependsOn": [
+        "^db:generate"
+      ],
+      "cache": false
+    },
+    "test": {
+      "outputs": []
+    },
+    "test:watch": {
+      "outputs": []
+    },
+    "preview": {
+      "cache": false
+    }
+  }
+}

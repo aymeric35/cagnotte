@@ -1,0 +1,25 @@
+{
+  "name": "@nuxt-fullstack-starter/nuxt-layer-daisyui",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./nuxt.config.ts",
+  "types": "./types/index.d.ts",
+  "scripts": {
+    "postinstall": "nuxt prepare",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "dependencies": {
+    "@nuxt-fullstack-starter/tailwind-preset": "workspace:*",
+    "mitt": "^3.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "6.6.6",
+    "@nuxt-fullstack-starter/nuxt-layer-daisyui-form": "workspace:*",
+    "@nuxt-fullstack-starter/nuxt-layer-utils": "workspace:*",
+    "nuxt": "3.4.2"
+  }
+}
