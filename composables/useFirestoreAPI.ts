@@ -1,10 +1,8 @@
 import { collection, doc } from 'firebase/firestore'
-export default function useFirestoreAPI() {
+export default function useFirestoreAPI(document: string) {
     const db = useFirestore();
 
-    const { data, pending } = useDocument(doc(collection(db, 'app'), 'data'))
+    const { data, pending } = useDocument(doc(collection(db, 'app'), document))
 
     return { data, pending }
 }
-    // const api = useState('data', () => ({ pending: true, data: null }))
-    // return useDocument(doc(collection(db, 'app'), 'data'), { target: api })
