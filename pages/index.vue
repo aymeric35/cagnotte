@@ -26,7 +26,7 @@ const db = useFirestore();
 const user = useCurrentUser();
 const username = user.value?.displayName as string
 
-const {data, pending} = useFirestoreAPI();
+const {data, pending} = useFirestoreAPI('data');
 
 const formatedTotal = computed(() => {
     const total = Number(data.value?.euros).toFixed(2);
@@ -39,6 +39,8 @@ const formatedTotal = computed(() => {
 const increment = async () => {
     await updateDoc(doc(collection(db, 'app'), 'data'), {
         euros: inc(0.1),
+    });
+    await updateDoc(doc(collection(db, 'app'), 'users'), {
         [`${username}.euros`]: inc(0.1)
     });
 }
