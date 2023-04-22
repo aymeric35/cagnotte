@@ -1,11 +1,9 @@
 <script setup lang="ts">
 const user = useCurrentUser();
-const { data } = useFirestoreAPI()
+const { data, pending } = useFirestoreAPI('users')
 
 const userAmount = computed(() => {
     const username = user?.value?.displayName?.toLowerCase();
-    console.log(username, 'username'); // toto
-    console.log(data, 'data.value'); // undefined
     if (data.value && username) {
         return Number(data.value[username].euros).toFixed(2)
     }
@@ -20,9 +18,9 @@ const callData = () => {
     <header>
         <div class="navbar bg-base-300">
             <div class="flex-1">
-                <a class="btn btn-ghost normal-case text-xl">Cagnotte Vacances</a>
-        </div>
-        <div v-if="user" class="flex-none">
+                <NuxtLink  class="btn btn-ghost normal-case text-xl" to="/">Cagnotte Vacances</NuxtLink>
+            </div>
+            <div v-if="user" class="flex-none">
                 <div class="dropdown dropdown-end">
                     <label tabindex="0" class="btn btn-square btn-ghost m-1">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -37,10 +35,14 @@ const callData = () => {
                             <p class="hover:bg-transparent hover:cursor-default">Bonjour {{ user?.displayName }} !</p>
                         </li>
                         <li>
-                            <p class="block">Montant dû dans la cagnotte : <span class="font-bold">{{ userAmount }}€</span></p>
+                            <p class="block">Montant dû dans la cagnotte : <span class="font-bold">{{ userAmount }}€</span>
+                            </p>
                         </li>
                         <li>
                             <button @click="callData">Call data</button>
+                        </li>
+                        <li>
+                            <NuxtLink to="stats" >Stats</NuxtLink>
                         </li>
                         <li><button @click="signOutUser">Se deconnecter</button></li>
                     </ul>
