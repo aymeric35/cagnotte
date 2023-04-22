@@ -1,29 +1,41 @@
 {
+  "name": "nuxt-fullstack-starter",
+  "version": "0.0.0",
   "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "packages/layers/*"
+  ],
+  "packageManager": "pnpm@7.26.3",
+  "engines": {
+    "node": ">=v18.13.0"
   },
-  "dependencies": {
-    "@kidonng/daisyui": "2.50.1-0",
-    "@nuxt/kit": "^3.2.2",
-    "@unocss/reset": "^0.50.1",
-    "mitt": "^3.0.0",
-    "unocss": "^0.50.1",
-    "unocss-preset-daisy": "^1.2.0",
-    "firebase": "^9.20.0",
-    "nuxt-vuefire": "^0.1.6",
-    "vuefire": "^3.1.0"
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "preview": "turbo run preview",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch",
+    "db:push": "turbo run db:push",
+    "db:seed": "turbo run db:seed",
+    "db:generate": "turbo run db:generate",
+    "docs:dev": "turbo run docs:dev",
+    "docs:build": "turbo run docs:build",
+    "docs:preview": "turbo run docs:preview"
   },
   "devDependencies": {
-    "nuxt": "^3.4.2",
-    "@iconify-json/mdi": "^1.1.47",
-    "@iconify-json/ph": "^1.1.4",
-    "@nuxtjs/color-mode": "^3.2.0",
-    "@unocss/nuxt": "^0.50.1",
-    "@unocss/preset-icons": "^0.50.1"
+    "@nuxt-fullstack-starter/eslint-config-custom": "workspace:*",
+    "consola": "3.0.1",
+    "postcss-html": "1.5.0",
+    "stylelint": "15.2.0",
+    "stylelint-config-css-modules": "^4.2.0",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-recess-order": "^4.0.0",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard-scss": "^7.0.1",
+    "turbo": "latest"
   }
 }
