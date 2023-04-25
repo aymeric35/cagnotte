@@ -47,5 +47,3 @@ async function increment() {
     </section>
   </div>
 </template>
-
-<style scoped></style>
