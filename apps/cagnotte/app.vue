@@ -19,7 +19,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <TheHeader />
+    <TheHeader v-if="user" />
     <NuxtPage />
     <TheFooter />
   </div>
