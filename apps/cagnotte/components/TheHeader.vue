@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const user = useCurrentUser()
-const { data, pending } = useFirestoreAPI('users')
+const { data } = useFirestoreAPI('users')
 
 const userAmount = computed(() => {
   const username = user?.value?.displayName?.toLowerCase()
