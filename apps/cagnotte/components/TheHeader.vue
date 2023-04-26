@@ -48,6 +48,9 @@ const userAmount = computed(() => {
               </NuxtLink>
             </li>
             <li>
+              <ThemeSelection />
+            </li>
+            <li>
               <button @click="signOutUser">
                 Se deconnecter
               </button>
