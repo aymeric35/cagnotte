@@ -9,20 +9,19 @@ const usersList = computed(() => {
 
 <template>
   <section>
-    <div v-if="usersList" class="stats stats-horizontal shadow">
-      <template v-for="(user, name) in usersList" :key="user.id">
-        <div class="stat">
-          <div class="stat-title">
-            {{ name }}
+    <div class="flex items-center justify-center mt-12">
+      <div v-if="usersList" class="stats stats-horizontal shadow grid-flow-row sm:grid-flow-column">
+        <template v-for="(user, name) in usersList" :key="user.id">
+          <div class="stat">
+            <div class="stat-title">
+              {{ name }}
+            </div>
+            <div class="stat-value">
+              {{ Number(user.euros).toFixed(2) }} €
+            </div>
           </div>
-          <div class="stat-value">
-            {{ Number(user.euros).toFixed(2) }}
-          </div>
-          <div class="stat-desc">
-            {{ user.id }}
-          </div>
-        </div>
-      </template>
+        </template>
+      </div>
     </div>
   </section>
 </template>
