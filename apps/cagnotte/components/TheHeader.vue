@@ -12,7 +12,7 @@ const userAmount = computed(() => {
 
 <template>
   <header>
-    <div class="navbar bg-base-300">
+    <div class="navbar h-16 bg-base-300">
       <div class="flex-1">
         <NuxtLink class="btn btn-ghost normal-case text-xl" to="/">
           Cagnotte Vacances

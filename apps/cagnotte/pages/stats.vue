@@ -8,9 +8,10 @@ const usersList = computed(() => {
 </script>
 
 <template>
-  <section>
-    <div class="flex items-center justify-center mt-12">
-      <div v-if="usersList" class="stats stats-horizontal shadow grid-flow-row sm:grid-flow-column">
+  <section class="min-h-screen flex justify-center items- -mt-16">
+    <div class="flex items-center justify-center">
+      <progress v-if="pending" class="progress w-56" />
+      <div v-else class="stats shadow stats-vertical sm:stats-horizontal">
         <template v-for="(user, name) in usersList" :key="user.id">
           <div class="stat">
             <div class="stat-title">

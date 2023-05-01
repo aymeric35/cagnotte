@@ -27,8 +27,8 @@ async function increment() {
 
 <template>
   <div>
-    <section class="h-screen">
-      <div class="flex justify-center items-center flex-col gap-10 mt-5">
+    <section class="min-h-screen flex justify-center items-center -mt-16">
+      <div class="flex justify-center items-center flex-col gap-10">
         <progress v-if="pending" class="progress w-56" />
         <div v-else class="grid grid-flow-col gap-5 text-center auto-cols-max">
           <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
